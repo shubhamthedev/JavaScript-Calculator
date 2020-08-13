@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+  font-size: 62.5%;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(180deg, #feead2, #fff8ee);
+  &:before {
+    content: "";
+    width: 80rem;
+    height: 60rem;
+    background: #f00;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+}
+.calculator {
+  width: 30rem;
+  background: linear-gradient(135deg, #fcaf3b, #f25c2a);
+  box-shadow: 0 10px 28px #d8724a;
+  margin: 30px auto;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 2rem;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -62%);
+}
+.screen {
+  background: #fff;
+  padding: 1.5rem 2.8rem;
+  height: 6.9rem;
+  text-align: right;
+  font-size: 2rem;
+  color: #4c455a;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 2px 3px #d8724a;
+  transition: color 0.6s ease-in-out;
+  & .formula-screen {
+    font-size: 1.3rem;
+    color: lighten(#4c455a, 10%);
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.buttons {
+  & button {
+    float: right;
+    border: none;
+    background: transparent;
+    color: #fff;
+    padding: 15px 10px;
+    outline: none;
+    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    focus: none !important;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &:active,
+    &.active {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  & .numbers {
+    float: left;
+    width: 75%;
+    padding: 1rem;
+
+    & button {
+      width: 33.3333%;
+      padding: 1.8rem 1rem;
+    }
+  }
+
+  & .operators {
+    float: right;
+    width: 25%;
+    padding: 1.6rem 1rem 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    min-height: 26rem;
+
+    & button {
+      width: 100%;
+      padding: 1.1rem 1rem;
+
+      &[data-val="x"] {
+        font-size: 1.3rem;
+      }
+
+      &[data-val="-"] {
+        font-size: 1.8rem;
+      }
+
+      &[data-val="="] {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
